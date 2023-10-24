@@ -1,0 +1,7 @@
+|===
+|Parameter|Description
+
+|`+isCold+`
+|check if the beer is cold or not
+
+|===

@@ -24,16 +24,12 @@ public class BeerController {
 
     @GetMapping("/{beerId}")
     public ResponseEntity<BeerDto> getBeerById(@PathVariable("beerId") UUID beerId){
-
-
         return new ResponseEntity<>(beerMapper.BeerToBeerDto(beerRepository.findById(beerId).get()), HttpStatus.OK);
     }
 
     @PostMapping
     public ResponseEntity saveNewBeer(@RequestBody @Validated BeerDto beerDto){
-
         beerRepository.save(beerMapper.BeerDtoToBeer(beerDto));
-
         return new ResponseEntity(HttpStatus.CREATED);
     }
 
@@ -44,10 +40,8 @@ public class BeerController {
             beer.setBeerStyle(beerDto.getBeerStyle().name());
             beer.setPrice(beerDto.getPrice());
             beer.setUpc(beerDto.getUpc());
-
             beerRepository.save(beer);
         });
-
         return new ResponseEntity(HttpStatus.NO_CONTENT);
     }
 
